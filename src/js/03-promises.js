@@ -1,10 +1,12 @@
 import Notiflix from 'notiflix';
+// Підключаємо бібліотеку
 
 const delay = document.querySelector('input[name="delay"]');
 const step = document.querySelector('input[name="step"]');
 const amount = document.querySelector('input[name="amount"]');
 const btnCreatePromise = document.querySelector('button[type="submit"]');
 
+// Звертаємось до необхідних елементів HTML
 
 function createPromise(position, delay) {
   const promise = new Promise((resolve, reject) => {
@@ -21,6 +23,8 @@ function createPromise(position, delay) {
   });
   return promise;
 }
+// Пишемо функцію де параметрами є номер промісу (position) та затримку, враховуючи першу затримку (delay), введену користувачем. Ця функция повертає виконаний promise (resolve) або повертає відхилений promise (reject).
+
 
 btnCreatePromise.addEventListener('click', e => {
   e.preventDefault();
@@ -40,4 +44,4 @@ btnCreatePromise.addEventListener('click', e => {
       });
   }
 });
-
+// Вішаємо слухача на подію клік, подія викликає функцію createPromise(position, delay) стільки разів, скільки ввели в поле amount та повертає Promise (then), якщо відхилений, то працює метод catch
